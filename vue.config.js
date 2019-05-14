@@ -19,11 +19,27 @@ module.exports = {
     publicPath, // 和 publicPath 保持一致
     proxy: {
       '/api': {
-        target: `http://localhost:8080/light/`,
-        changeOrigin: true,
+        target: `http://127.0.0.1:8080`,
+        //changeOrigin: true,
         pathRewrite: {
-          '^api/': ''
-        }
+          //'^/api': '/api'
+        },
+        // onProxyRes: function(proxyRes, req, res) {
+        //   var cookies = proxyRes.headers['set-cookie'];
+        //   var cookieRegex = /Path=\/XXX\//i;
+        //   //修改cookie Path
+        //   if (cookies) {
+        //     var newCookie = cookies.map(function(cookie) {
+        //       if (cookieRegex.test(cookie)) {
+        //         return cookie.replace(cookieRegex, 'Path=/');
+        //       }
+        //       return cookie;
+        //     });
+        //     //修改cookie path
+        //     delete proxyRes.headers['set-cookie'];
+        //     proxyRes.headers['set-cookie'] = newCookie;
+        //   }
+        // }
       }
     }
   },
