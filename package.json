@@ -5,6 +5,7 @@
     "serve": "vue-cli-service serve --open",
     "start": "npm run serve",
     "dev": "npm run serve",
+    "dev:nomock": "npm run serve --mode nomock",
     "build": "vue-cli-service build",
     "build:nomock": "vue-cli-service build --mode nomock",
     "build:travis": "vue-cli-service build --mode travis",

@@ -15,9 +15,9 @@
         class="page-login--content"
         flex="dir:top main:justify cross:center box:justify">
         <div class="page-login--content-header">
-          <p class="page-login--content-header-motto">
+          <!-- <p class="page-login--content-header-motto">
             时间是一切财富中最宝贵的财富。 <span>—— 德奥弗拉斯多</span>
-          </p>
+          </p> -->
         </div>
         <div
           class="page-login--content-main"
