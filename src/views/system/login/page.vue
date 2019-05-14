@@ -119,8 +119,8 @@ export default {
       ],
       // 表单
       formLogin: {
-        username: 'admin',
-        password: 'admin',
+        username: 'wwq',
+        password: '123456',
         code: 'v9am'
       },
       // 校验
@@ -153,9 +153,10 @@ export default {
     clearInterval(this.timeInterval)
   },
   methods: {
-    ...mapActions('d2admin/account', [
-      'login'
-    ]),
+    ...mapActions({
+      login: 'd2admin/account/login',
+      reqProjectGroup: 'light/common/reqProjectGroup'
+    }),
     refreshTime () {
       this.time = dayjs().format('HH:mm:ss')
     },
@@ -164,9 +165,9 @@ export default {
      * @param {Object} user 用户信息
      */
     handleUserBtnClick (user) {
-      this.formLogin.username = user.username
-      this.formLogin.password = user.password
-      this.submit()
+      // this.formLogin.username = user.username
+      // this.formLogin.password = user.password
+      // this.submit()
     },
     /**
      * @description 提交表单
@@ -183,8 +184,11 @@ export default {
             password: this.formLogin.password
           })
             .then(() => {
-              // 重定向对象不存在则返回顶层路径
-              this.$router.replace(this.$route.query.redirect || '/')
+              this.reqProjectGroup()
+                .then(() => {
+                  // 重定向对象不存在则返回顶层路径
+                  this.$router.replace(this.$route.query.redirect || '/')
+                })        
             })
         } else {
           // 登录表单校验失败

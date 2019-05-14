@@ -31,6 +31,16 @@ const frameIn = [
         },
         component: _import('system/index')
       },
+      // 能耗分析
+      {
+        path: '/energy-analyse',
+        name: 'energy-analyse',
+        meta: {
+          title: '能耗分析',
+          auth: true
+        },
+        component: _import('light/energy-analyse')
+      },
       // 系统 前端日志
       {
         path: 'log',

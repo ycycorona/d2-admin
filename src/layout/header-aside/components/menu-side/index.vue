@@ -15,6 +15,13 @@
       <d2-icon name="inbox"/>
       <span>没有侧栏菜单</span>
     </div>
+    <el-tree
+      v-if="treeAside.length === 0 && !asideCollapse"
+      :data="projectGroup"
+      :props="defaultProps"
+      show-checkbox
+      @check-change="handleCheckChange">
+    </el-tree>    
   </div>
 </template>
 
@@ -37,13 +44,21 @@ export default {
     return {
       active: '',
       asideHeight: 300,
-      BS: null
+      BS: null,
+      defaultProps: {
+        children: 'sub',
+        label: 'name'
+      }
     }
   },
   computed: {
     ...mapState('d2admin/menu', [
+      'treeAside',
       'aside',
       'asideCollapse'
+    ]),
+    ...mapState('light/common', [
+      'projectGroup'
     ])
   },
   watch: {
@@ -93,7 +108,11 @@ export default {
         delete this.BS
         this.BS = null
       }
-    }
+    },
+    handleCheckChange() {
+
+    },
+
   }
 }
 </script>

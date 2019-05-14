@@ -38,6 +38,11 @@ export const menuHeader = [
     icon: 'home'
   },
   {
+    path: '/energy-analyse',
+    title: '能耗分析'
+    // icon: 'home'
+  },
+  {
     title: '功能',
     icon: 'puzzle-piece',
     children: [

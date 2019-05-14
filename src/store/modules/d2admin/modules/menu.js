@@ -8,6 +8,8 @@ export default {
     header: [],
     // 侧栏菜单
     aside: [],
+    // 树形侧边菜单
+    treeAside: [],
     // 侧边栏收缩
     asideCollapse: setting.menu.asideCollapse
   },
@@ -87,6 +89,15 @@ export default {
     asideSet (state, menu) {
       // store 赋值
       state.aside = menu
+    },
+    /**
+     * @description 设置树形侧边栏菜单
+     * @param {Object} state vuex state
+     * @param {Array} menu menu setting
+     */
+    treeAsideSet (state, menu) {
+      // store 赋值
+      state.treeAside = menu
     }
   }
 }
